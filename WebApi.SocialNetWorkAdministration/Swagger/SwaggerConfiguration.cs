@@ -20,17 +20,11 @@ namespace AspNetWebApiHomework.Swagger
         {
             services.AddSwaggerDocument(c =>
             {
-                c.Title = "Cars";
+                c.Title = "Administration";
                 c.DocumentName = SwagDocParts.Administration;
                 c.ApiGroupNames = new[] { SwagDocParts.Administration};
                 c.GenerateXmlObjects = true;
             });
-            //.AddSwaggerDocument(c => 
-            //{
-            //    c.Title = "Weather";
-            //    c.DocumentName = SwaggerDocParts.Weather;
-            //    c.ApiGroupNames = new[] { SwaggerDocParts.Weather };
-            //});
         }
     }
 }

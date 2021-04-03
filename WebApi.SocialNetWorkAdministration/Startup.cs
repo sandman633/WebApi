@@ -11,6 +11,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApi.SocialNetWorkAdministration.Controllers;
+using WebApi.SocialNetWorkAdministration.Extensions;
+using WebApi.SocialNetWorkAdministration.Infrastructure.AuthOptions;
+using WebApi.SocialNetWorkAdministration.Infrastructure.Mapping;
+using WebApi.SocialNetWorkAdministration.Models;
 
 namespace WebApi.SocialNetWorkAdministration
 {
@@ -20,18 +25,27 @@ namespace WebApi.SocialNetWorkAdministration
         {
             Configuration = configuration;
         }
-
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var authOptions = Configuration.GetSection("Auth");
+            services.Configure<AuthOption>(authOptions);
+
+            services.AddCors(options => options.AddDefaultPolicy(builder => 
+                                            builder.AllowAnyOrigin()
+                                            .AllowAnyMethod()
+                                            .AllowAnyHeader()));
+
+            services.ConfigurationDb(Configuration);
+            services.AddAutoMapper(config => config.AddProfile<UserProfile>());
             services.AddControllers();
             services.ConfigureSwagger();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env,SeedDb seed)
         {
             if (env.IsDevelopment())
             {
@@ -49,6 +63,9 @@ namespace WebApi.SocialNetWorkAdministration
                 endpoints.MapControllers();
             });
 
+            //seed.Seed();
+            app.UseCors();
+            app.UseOpenApi();
             app.UseSwaggerUi3();
         }
     }
