@@ -1,3 +1,4 @@
+using AspNetWebApiHomework.Swagger;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,6 +27,7 @@ namespace WebApi.SocialNetWorkAdministration
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.ConfigureSwagger();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +48,8 @@ namespace WebApi.SocialNetWorkAdministration
             {
                 endpoints.MapControllers();
             });
+
+            app.UseSwaggerUi3();
         }
     }
 }
