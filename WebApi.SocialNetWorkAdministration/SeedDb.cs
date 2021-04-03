@@ -41,9 +41,11 @@ namespace WebApi.SocialNetWorkAdministration
                 Password = "4321"
             }
         };
+
+
         public void Seed()
         {
-            Context.AddRange(users);
+            Context.Users.AddRange(users);
             Context.SaveChanges();
         }
 
