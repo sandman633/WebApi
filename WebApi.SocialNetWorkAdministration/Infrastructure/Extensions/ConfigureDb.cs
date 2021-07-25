@@ -2,9 +2,9 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using WebApi.SocialNetWorkAdministration.Models;
+using Model.Models;
 
-namespace WebApi.SocialNetWorkAdministration.Extensions
+namespace WebApi.SocialNetWorkAdministration.Infrastructure.Extensions
 {
     public static class ConfigureDb
     {

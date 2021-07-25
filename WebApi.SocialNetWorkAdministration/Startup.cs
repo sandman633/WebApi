@@ -1,21 +1,13 @@
 using AspNetWebApiHomework.Swagger;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using WebApi.SocialNetWorkAdministration.Controllers;
-using WebApi.SocialNetWorkAdministration.Extensions;
 using WebApi.SocialNetWorkAdministration.Infrastructure.AuthOptions;
+using WebApi.SocialNetWorkAdministration.Infrastructure.Extensions;
 using WebApi.SocialNetWorkAdministration.Infrastructure.Mapping;
-using WebApi.SocialNetWorkAdministration.Models;
 
 namespace WebApi.SocialNetWorkAdministration
 {
@@ -32,7 +24,7 @@ namespace WebApi.SocialNetWorkAdministration
         {
             var authOptions = Configuration.GetSection("Auth");
             services.Configure<AuthOption>(authOptions);
-
+            services.RegisterServices();
             services.AddCors(options => options.AddDefaultPolicy(builder => 
                                             builder.AllowAnyOrigin()
                                             .AllowAnyMethod()
@@ -40,8 +32,27 @@ namespace WebApi.SocialNetWorkAdministration
 
             services.ConfigurationDb(Configuration);
             services.AddAutoMapper(config => config.AddProfile<UserProfile>());
-            services.AddControllers();
-            services.ConfigureSwagger();
+            services.AddControllers().AddNewtonsoftJson(options =>
+                                        options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+            var authoptions = Configuration.GetSection("Auth").Get<AuthOption>();
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+            {
+                options.RequireHttpsMetadata = false;
+                options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidIssuer = authoptions.Issuer,
+
+                    ValidateAudience = true,
+                    ValidAudience = authoptions.Audience,
+
+                    ValidateLifetime = true,
+
+                    IssuerSigningKey = authoptions.GetSymmetricSecurityKey(),
+                    ValidateIssuerSigningKey = true
+                };
+            });
+            //services.ConfigureSwagger();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,7 +66,10 @@ namespace WebApi.SocialNetWorkAdministration
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseCors();
+            //app.UseOpenApi();
+            //app.UseSwaggerUi3();
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -64,9 +78,6 @@ namespace WebApi.SocialNetWorkAdministration
             });
 
             //seed.Seed();
-            app.UseCors();
-            app.UseOpenApi();
-            app.UseSwaggerUi3();
         }
     }
 }

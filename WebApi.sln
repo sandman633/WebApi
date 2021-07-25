@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi.SocialNetWorkAdministration", "WebApi.SocialNetWorkAdministration\WebApi.SocialNetWorkAdministration.csproj", "{5E1F4355-101B-4313-83AA-9C3F7959B67A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi.SocialNetWorkAdministration", "WebApi.SocialNetWorkAdministration\WebApi.SocialNetWorkAdministration.csproj", "{5E1F4355-101B-4313-83AA-9C3F7959B67A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model", "Model\Model.csproj", "{5EB97C89-BD02-4F52-A3D4-991BB8D5F8CD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BL", "BL\BL.csproj", "{92269F7C-0F49-43DF-AE8A-7BBEA1B7BB1C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositories", "Repositories\Repositories.csproj", "{58908ABB-5ED0-48AD-9D6C-A5DF48489721}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{5E1F4355-101B-4313-83AA-9C3F7959B67A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E1F4355-101B-4313-83AA-9C3F7959B67A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E1F4355-101B-4313-83AA-9C3F7959B67A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EB97C89-BD02-4F52-A3D4-991BB8D5F8CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EB97C89-BD02-4F52-A3D4-991BB8D5F8CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EB97C89-BD02-4F52-A3D4-991BB8D5F8CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EB97C89-BD02-4F52-A3D4-991BB8D5F8CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92269F7C-0F49-43DF-AE8A-7BBEA1B7BB1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92269F7C-0F49-43DF-AE8A-7BBEA1B7BB1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92269F7C-0F49-43DF-AE8A-7BBEA1B7BB1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92269F7C-0F49-43DF-AE8A-7BBEA1B7BB1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58908ABB-5ED0-48AD-9D6C-A5DF48489721}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58908ABB-5ED0-48AD-9D6C-A5DF48489721}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58908ABB-5ED0-48AD-9D6C-A5DF48489721}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58908ABB-5ED0-48AD-9D6C-A5DF48489721}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

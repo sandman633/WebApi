@@ -1,9 +1,10 @@
 ﻿using AutoMapper;
+using Model.Models;
+using Model.Models.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WebApi.SocialNetWorkAdministration.Models;
 
 namespace WebApi.SocialNetWorkAdministration.Infrastructure.Mapping
 {
@@ -12,7 +13,7 @@ namespace WebApi.SocialNetWorkAdministration.Infrastructure.Mapping
         public UserProfile()
         {
             CreateMap<User, NewUser>().ReverseMap();
-            
+            CreateMap<News, NewsResponse>().IncludeMembers();
         }
     }
 }
