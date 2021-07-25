@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Model.Models;
 using Model.Models.Dto;
+using Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,55 +13,52 @@ namespace BL.AdminLogic
 {
     public class AdminService : IAdminService
     {
-        private AdminContext _adminContext;
-        private IMapper _mapper;
-        public AdminService(AdminContext adminContext, IMapper mapper)
+        private readonly AdminContext _adminContext;
+        private readonly IMapper _mapper;
+        private readonly IAdminRepository _repository;
+
+        public AdminService(AdminContext adminContext, IMapper mapper, IAdminRepository repository)
         {
             _adminContext = adminContext;
             _mapper = mapper;
+            _repository = repository;
         }
         public void BanUser(int userId)
         {
-            throw new NotImplementedException();
+            _repository.BanUser(userId);
         }
 
         public Task<News> CreateNews()
         {
-            throw new NotImplementedException();
+            return _repository.CreateNews();
         }
 
         public void DeleteComment(int commentId)
         {
-            throw new NotImplementedException();
+            _repository.DeleteComment(commentId);
         }
 
         public void DeleteNews(int newsId)
         {
-            throw new NotImplementedException();
+            //TODO: изменить метод создания и изменения новости
+            _repository.DeleteNews(newsId);
         }
 
         public void EditNews(int newsId)
         {
-            throw new NotImplementedException();
+            _repository.EditNews(newsId);
         }
 
         public async Task<IEnumerable<NewsResponse>> GetNews()
         {
-            DbSet<News> n = _adminContext.News;
-            DbSet<User> u = _adminContext.Users;
-            DbSet<Сomment> c = _adminContext.Comments;
-            var allnews = _mapper.Map<IEnumerable<NewsResponse>>(n.AsEnumerable());
-            foreach(var news in allnews)
-            {
-                news.AuthorName =  u.Where(x => x.Id == news.AuthorId).Select(x => x.Name).FirstOrDefault();
-                news.Сomments = c.Where(x => x.NewsId == news.Id).Select(x => x).ToList();
-            }
-            return allnews;
+            var news = await _repository.GetNews();
+            var response =  _mapper.Map<IEnumerable<NewsResponse>>(news);
+            return  response;
         }
 
         public void UnbanUser(int userId)
         {
-            throw new NotImplementedException();
+            _repository.UnbanUser(userId);
         }
     }
 }
