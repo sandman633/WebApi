@@ -5,13 +5,13 @@ using System.Text;
 
 namespace DAL.Domain
 {
-    public class AdminContext : DbContext
+    public class WebApiContext : DbContext
     {
         public DbSet<User> Users { get; set; }
         public DbSet<News> News { get; set; }
         public DbSet<Сomment> Comments { get; set; }
 
-        public AdminContext(DbContextOptions options) : base(options)
+        public WebApiContext(DbContextOptions options) : base(options)
         {
 
         }

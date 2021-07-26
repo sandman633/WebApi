@@ -8,12 +8,11 @@ namespace DAL.Domain
     public class Сomment : BaseEntity
     {
         public int Root { get; set; }
-        [ForeignKey("User")]
-        public int Author { get; set; }
+        public User Author { get; set; }
         public string Text { get; set; }
         public int InvestmentLevel { get; set; }
-        [ForeignKey("News")]
-        public int NewsId { get; set; }
+        public News News { get; set; }
+        public ICollection<Сomment> Comments { get; set; }
 
     }
 }

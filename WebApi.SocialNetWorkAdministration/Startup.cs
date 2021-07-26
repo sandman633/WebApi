@@ -24,7 +24,7 @@ namespace WebApi.SocialNetWorkAdministration
         {
             var authOptions = Configuration.GetSection("Auth");
             services.Configure<AuthOption>(authOptions);
-            services.RegisterServices();
+            //services.RegisterServices();
             services.AddCors(options => options.AddDefaultPolicy(builder => 
                                             builder.AllowAnyOrigin()
                                             .AllowAnyMethod()

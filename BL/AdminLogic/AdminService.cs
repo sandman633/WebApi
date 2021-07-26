@@ -1,23 +1,23 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using DAL.Domain;
-using DAL.Domain.Dto;
 using Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Models.Response;
 
 namespace BL.AdminLogic
 {
-    public class AdminService : IAdminService
+    public class AdminService 
     {
-        private readonly AdminContext _adminContext;
+        private readonly WebApiContext _adminContext;
         private readonly IMapper _mapper;
         private readonly IAdminRepository _repository;
 
-        public AdminService(AdminContext adminContext, IMapper mapper, IAdminRepository repository)
+        public AdminService(WebApiContext adminContext, IMapper mapper, IAdminRepository repository)
         {
             _adminContext = adminContext;
             _mapper = mapper;
@@ -56,9 +56,5 @@ namespace BL.AdminLogic
             return  response;
         }
 
-        public void UnbanUser(int userId)
-        {
-            _repository.UnbanUser(userId);
-        }
     }
 }

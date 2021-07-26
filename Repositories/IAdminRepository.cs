@@ -1,5 +1,5 @@
 ﻿using DAL.Domain;
-using DAL.Domain.Dto;
+using Models.Response;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

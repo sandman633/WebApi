@@ -11,7 +11,7 @@ namespace WebApi.SocialNetWorkAdministration.Infrastructure.Extensions
     {
         public static void RegisterServices(this IServiceCollection services)
         {
-            services.AddTransient<IAdminService, AdminService>();
+            //services.AddTransient<IAdminService, AdminService>();
         }
     }
 }
