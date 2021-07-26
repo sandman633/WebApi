@@ -9,7 +9,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DAL.Migrations
 {
     [DbContext(typeof(WebApiContext))]
-    partial class AdminContextModelSnapshot : ModelSnapshot
+    partial class WebApiContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -26,18 +26,18 @@ namespace DAL.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<int?>("AuthorId")
-                        .HasColumnType("integer");
-
                     b.Property<string>("Body")
                         .HasColumnType("text");
 
                     b.Property<string>("Header")
                         .HasColumnType("text");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("integer");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("AuthorId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("News");
                 });
@@ -58,15 +58,46 @@ namespace DAL.Migrations
                     b.Property<string>("Password")
                         .HasColumnType("text");
 
-                    b.Property<int[]>("Role")
-                        .HasColumnType("integer[]");
-
-                    b.Property<bool>("State")
-                        .HasColumnType("boolean");
-
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("DAL.Domain.WebApiContext+Role", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Roles");
+                });
+
+            modelBuilder.Entity("DAL.Domain.WebApiContext+UserRole", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<int>("RoleId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UsersRoles");
                 });
 
             modelBuilder.Entity("DAL.Domain.Сomment", b =>
@@ -76,13 +107,10 @@ namespace DAL.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<int?>("AuthorId")
+                    b.Property<int?>("LinkedCommentId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("InvestmentLevel")
-                        .HasColumnType("integer");
-
-                    b.Property<int?>("NewsId")
+                    b.Property<int>("NewsId")
                         .HasColumnType("integer");
 
                     b.Property<int>("Root")
@@ -91,46 +119,73 @@ namespace DAL.Migrations
                     b.Property<string>("Text")
                         .HasColumnType("text");
 
-                    b.Property<int?>("СommentId")
+                    b.Property<int>("UserId")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AuthorId");
+                    b.HasIndex("LinkedCommentId");
 
                     b.HasIndex("NewsId");
 
-                    b.HasIndex("СommentId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Comments");
                 });
 
             modelBuilder.Entity("DAL.Domain.News", b =>
                 {
-                    b.HasOne("DAL.Domain.User", "Author")
+                    b.HasOne("DAL.Domain.User", "User")
                         .WithMany()
-                        .HasForeignKey("AuthorId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("Author");
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("DAL.Domain.WebApiContext+UserRole", b =>
+                {
+                    b.HasOne("DAL.Domain.WebApiContext+Role", "Role")
+                        .WithMany("UserRoles")
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DAL.Domain.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Role");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("DAL.Domain.Сomment", b =>
                 {
-                    b.HasOne("DAL.Domain.User", "Author")
+                    b.HasOne("DAL.Domain.Сomment", "LinkedComment")
                         .WithMany()
-                        .HasForeignKey("AuthorId");
+                        .HasForeignKey("LinkedCommentId");
 
                     b.HasOne("DAL.Domain.News", "News")
                         .WithMany("Сomments")
-                        .HasForeignKey("NewsId");
+                        .HasForeignKey("NewsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasOne("DAL.Domain.Сomment", null)
-                        .WithMany("Comments")
-                        .HasForeignKey("СommentId");
+                    b.HasOne("DAL.Domain.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("Author");
+                    b.Navigation("LinkedComment");
 
                     b.Navigation("News");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("DAL.Domain.News", b =>
@@ -138,9 +193,9 @@ namespace DAL.Migrations
                     b.Navigation("Сomments");
                 });
 
-            modelBuilder.Entity("DAL.Domain.Сomment", b =>
+            modelBuilder.Entity("DAL.Domain.WebApiContext+Role", b =>
                 {
-                    b.Navigation("Comments");
+                    b.Navigation("UserRoles");
                 });
 #pragma warning restore 612, 618
         }
