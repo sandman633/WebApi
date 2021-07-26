@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Model.Models
+namespace DAL.Domain
 {
     public class User : BaseEntity
     {

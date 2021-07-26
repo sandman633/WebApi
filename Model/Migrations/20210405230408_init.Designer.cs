@@ -4,10 +4,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Model.Models;
+using DAL.Domain;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace Model.Migrations
+namespace DAL.Migrations
 {
     [DbContext(typeof(AdminContext))]
     [Migration("20210405230408_init")]
@@ -21,7 +21,7 @@ namespace Model.Migrations
                 .HasAnnotation("ProductVersion", "5.0.4")
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-            modelBuilder.Entity("Model.Models.News", b =>
+            modelBuilder.Entity("DAL.Domain.News", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -42,7 +42,7 @@ namespace Model.Migrations
                     b.ToTable("News");
                 });
 
-            modelBuilder.Entity("Model.Models.User", b =>
+            modelBuilder.Entity("DAL.Domain.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -69,7 +69,7 @@ namespace Model.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("Model.Models.Сomment", b =>
+            modelBuilder.Entity("DAL.Domain.Сomment", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -98,16 +98,16 @@ namespace Model.Migrations
                     b.ToTable("Comments");
                 });
 
-            modelBuilder.Entity("Model.Models.Сomment", b =>
+            modelBuilder.Entity("DAL.Domain.Сomment", b =>
                 {
-                    b.HasOne("Model.Models.News", null)
+                    b.HasOne("DAL.Domain.News", null)
                         .WithMany("Сomments")
                         .HasForeignKey("NewsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Model.Models.News", b =>
+            modelBuilder.Entity("DAL.Domain.News", b =>
                 {
                     b.Navigation("Сomments");
                 });

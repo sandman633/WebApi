@@ -1,21 +1,23 @@
-﻿using System;
+﻿using DAL.Domain;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 using System.Text.Json.Serialization;
 
-namespace Model.Models
+namespace Models.Response.Dto
 {
-    public class News : BaseEntity
+    public class NewsResponse
     {
-        [ForeignKey("User")]
+        public int Id { get; set; }
         public int AuthorId { get; set; }
+        public string AuthorName { get; set; }
         public string Header { get; set; }
         public string Body { get; set; }
-        public ICollection<Сomment> Сomments { get; set; }
-        public News()
+        public IEnumerable<Сomment> Сomments { get; set; }
+        public NewsResponse()
         {
             Сomments = new List<Сomment>();
         }
+
     }
 }

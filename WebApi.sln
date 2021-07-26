@@ -5,11 +5,13 @@ VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi.SocialNetWorkAdministration", "WebApi.SocialNetWorkAdministration\WebApi.SocialNetWorkAdministration.csproj", "{5E1F4355-101B-4313-83AA-9C3F7959B67A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model", "Model\Model.csproj", "{5EB97C89-BD02-4F52-A3D4-991BB8D5F8CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL", "Model\DAL.csproj", "{5EB97C89-BD02-4F52-A3D4-991BB8D5F8CD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BL", "BL\BL.csproj", "{92269F7C-0F49-43DF-AE8A-7BBEA1B7BB1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositories", "Repositories\Repositories.csproj", "{58908ABB-5ED0-48AD-9D6C-A5DF48489721}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repositories", "Repositories\Repositories.csproj", "{58908ABB-5ED0-48AD-9D6C-A5DF48489721}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "DAL\Models.csproj", "{D04F0036-F102-4F38-A092-7BA0EFF778FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{58908ABB-5ED0-48AD-9D6C-A5DF48489721}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58908ABB-5ED0-48AD-9D6C-A5DF48489721}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58908ABB-5ED0-48AD-9D6C-A5DF48489721}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D04F0036-F102-4F38-A092-7BA0EFF778FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D04F0036-F102-4F38-A092-7BA0EFF778FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D04F0036-F102-4F38-A092-7BA0EFF778FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D04F0036-F102-4F38-A092-7BA0EFF778FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

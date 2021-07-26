@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using Model.Models;
-using Model.Models.Dto;
+using DAL.Domain;
+using DAL.Domain.Dto;
 using Repositories;
 using System;
 using System.Collections.Generic;

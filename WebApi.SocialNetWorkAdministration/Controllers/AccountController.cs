@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using Model.Models;
+using DAL.Domain;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -13,7 +13,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using WebApi.SocialNetWorkAdministration.Infrastructure.AuthOptions;
 using WebApi.SocialNetWorkAdministration.Swagger;
-using static Model.Models.User;
+using static DAL.Domain.User;
 
 namespace WebApi.SocialNetWorkAdministration.Controllers
 {

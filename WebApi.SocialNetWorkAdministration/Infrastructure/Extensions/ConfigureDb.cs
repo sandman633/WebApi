@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Model.Models;
+using DAL.Domain;
 
 namespace WebApi.SocialNetWorkAdministration.Infrastructure.Extensions
 {
