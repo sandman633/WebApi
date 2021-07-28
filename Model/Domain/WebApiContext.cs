@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DAL.Domain
 {
-    public partial class WebApiContext : DbContext
+    public class WebApiContext : DbContext
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
