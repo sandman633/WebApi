@@ -24,16 +24,16 @@ namespace WebApi.SocialNetWorkAdministration.Controllers
             _service = service;
         }
         //[Authorize (Roles =("admin"))]
-        [HttpGet] 
-        [Route("[controller]/News")]
-        public async Task<IActionResult> GetNews()
-        {
-            var news = await _service.GetNews();
-            if(news != null)
-            {
-                return Ok(news);
-            }
-            return NotFound();
-        }
+        //[HttpGet] 
+        //[Route("[controller]/News")]
+        //public async Task<IActionResult> GetNews()
+        //{
+        //    var news = await _service.GetNews();
+        //    if(news != null)
+        //    {
+        //        return Ok(news);
+        //    }
+        //    return NotFound();
+        //}
     }
 }

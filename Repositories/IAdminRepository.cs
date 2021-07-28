@@ -1,5 +1,4 @@
 ﻿using DAL.Domain;
-using Models.Response;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -7,7 +6,7 @@ namespace Repositories
 {
     public interface IAdminRepository
     {
-        public Task<IEnumerable<NewsResponse>> GetNews();
+        //public Task<IEnumerable<NewsResponse>> GetNews();
         public Task<News> CreateNews();
         public void EditNews(int newsId);
         public void DeleteNews(int newsId);
