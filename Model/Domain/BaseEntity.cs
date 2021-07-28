@@ -6,8 +6,14 @@ using System.Text;
 
 namespace DAL.Domain
 {
+    /// <summary>
+    /// BaseEntity.
+    /// </summary>
     public class BaseEntity
     {
+        /// <summary>
+        /// Id.
+        /// </summary>
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
