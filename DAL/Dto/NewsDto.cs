@@ -10,13 +10,13 @@ namespace Models.Dto
     public class NewsDto : BaseDto
     {
         /// <summary>
-        /// Author.
+        /// User.
         /// </summary>
-        public UserDto  Author { get; set; }
+        public UserDto  User { get; set; }
         /// <summary>
-        /// AuthorId.
+        /// UserId.
         /// </summary>
-        public int AuthorId { get; set; }
+        public int UserId { get; set; }
         /// <summary>
         /// News header. 
         /// </summary>

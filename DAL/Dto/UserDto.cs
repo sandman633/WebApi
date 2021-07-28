@@ -1,5 +1,8 @@
 ﻿namespace Models.Dto
 {
+    /// <summary>
+    /// User.
+    /// </summary>
     public class UserDto : BaseDto
     {
         /// <summary>
