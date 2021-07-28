@@ -4,17 +4,30 @@ using System.Text;
 
 namespace Models.Dto
 {
-    public class NewsDto
+    /// <summary>
+    /// News Dto.
+    /// </summary>
+    public class NewsDto : BaseDto
     {
-        public int Id { get; set; }
+        /// <summary>
+        /// Author.
+        /// </summary>
+        public UserDto  Author { get; set; }
+        /// <summary>
+        /// AuthorId.
+        /// </summary>
         public int AuthorId { get; set; }
-        public string AuthorName { get; set; }
+        /// <summary>
+        /// News header. 
+        /// </summary>
         public string Header { get; set; }
+        /// <summary>
+        /// News body.
+        /// </summary>
         public string Body { get; set; }
-        //public IEnumerable<CommentDto> Сomments { get; set; }
-        //public NewsDto()
-        //{
-        //    Сomments = new List<CommentDto>();
-        //}
+        /// <summary>
+        /// News comments.
+        /// </summary>
+        public ICollection<CommentDto> Сomments { get; set; }
     }
 }

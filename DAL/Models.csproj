@@ -8,4 +8,9 @@
     <ProjectReference Include="..\Model\DAL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Request\" />
+    <Folder Include="Response\" />
+  </ItemGroup>
+
 </Project>
