@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace Repositories.Interfaces.CRUD
@@ -14,6 +16,11 @@ namespace Repositories.Interfaces.CRUD
         /// Returns all entities.
         /// </summary>
         Task<IEnumerable<TDto>> GetAsync();
+        /// <summary>
+        /// Returns all entities that match the given filter.
+        /// </summary>
+        /// <param name="filter">Search criteria.</param>
+        Task<IEnumerable<TDto>> GetByCriteriaAsync(Expression<Func<TEntity, bool>> filter = null);
 
     }
 }

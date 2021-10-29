@@ -102,7 +102,7 @@ namespace DAL.Migrations
                     b.ToTable("UsersRoles");
                 });
 
-            modelBuilder.Entity("DAL.Domain.Сomment", b =>
+            modelBuilder.Entity("DAL.Domain.Comments", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -165,9 +165,9 @@ namespace DAL.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("DAL.Domain.Сomment", b =>
+            modelBuilder.Entity("DAL.Domain.Comments", b =>
                 {
-                    b.HasOne("DAL.Domain.Сomment", "LinkedComment")
+                    b.HasOne("DAL.Domain.Comments", "LinkedComment")
                         .WithMany()
                         .HasForeignKey("LinkedCommentId");
 

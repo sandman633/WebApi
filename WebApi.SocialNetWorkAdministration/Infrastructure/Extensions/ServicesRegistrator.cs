@@ -1,5 +1,8 @@
-﻿using BL.AdminLogic;
+﻿using BL.Services;
+using BL.Services.Implementations;
+using BL.Services.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
+using Repositories.Implementations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +14,9 @@ namespace WebApi.SocialNetWorkAdministration.Infrastructure.Extensions
     {
         public static void RegisterServices(this IServiceCollection services)
         {
-            //services.AddTransient<IAdminService, AdminService>();
+            services.AddTransient<IUserService, UserService>();
+            services.AddTransient<INewsService, NewsService>();
+            services.AddTransient<IUserRoleService, UserRoleService>();
         }
     }
 }
