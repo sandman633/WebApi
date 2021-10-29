@@ -26,5 +26,9 @@ namespace DAL.Domain
         /// Password.
         /// </summary>
         public string Password { get; set; }
+        /// <summary>
+        /// User roles.
+        /// </summary>
+        public ICollection<UserRole> UserRoles { get; set; }
     }
 }

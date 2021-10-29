@@ -5,9 +5,9 @@ using System.Text;
 namespace Models.Dto
 {
     /// <summary>
-    /// CommentDto.
+    /// CommentsDto.
     /// </summary>
-    public class CommentDto : BaseDto
+    public class CommentsDto : BaseDto
     {
         /// <summary>
         /// Userdto.
@@ -37,7 +37,7 @@ namespace Models.Dto
         /// <summary>
         /// LinkedCommentId.  Maybe null, if user leave comment on news.
         /// </summary>
-        public CommentDto LinkedComment { get; set; }
+        public CommentsDto LinkedComment { get; set; }
         /// <summary>
         /// LinkedCommentId.
         /// </summary>

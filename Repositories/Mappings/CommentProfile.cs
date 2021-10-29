@@ -5,7 +5,7 @@ using DAL.Domain;
 namespace Repositories.Mappings
 {
     /// <summary>
-    /// Mapping profile for "Сomment" entity.
+    /// Mapping profile for "Comments" entity.
     /// </summary>
     public class CommentProfile : Profile
     {
@@ -14,7 +14,7 @@ namespace Repositories.Mappings
         /// </summary>
         public CommentProfile()
         {
-            CreateMap<Сomment, CommentDto>().ReverseMap();
+            CreateMap<Comments, CommentsDto>().ReverseMap();
         }
     }
 }

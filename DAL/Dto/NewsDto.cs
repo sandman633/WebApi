@@ -28,6 +28,6 @@ namespace Models.Dto
         /// <summary>
         /// News comments.
         /// </summary>
-        public ICollection<CommentDto> Сomments { get; set; }
+        public ICollection<CommentsDto> Сomments { get; set; }
     }
 }

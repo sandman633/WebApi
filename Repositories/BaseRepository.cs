@@ -20,8 +20,8 @@ namespace Repositories
         where TDto : BaseDto
         where TModel : BaseEntity
     {
-        private readonly WebApiContext _context;
-        private readonly IMapper _mapper;
+        protected readonly WebApiContext _context;
+        protected readonly IMapper _mapper;
         protected DbSet<TModel> DbSet => _context.Set<TModel>();
 
         /// <summary>

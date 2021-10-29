@@ -24,7 +24,7 @@ namespace WebApi.SocialNetWorkAdministration
         {
             var authOptions = Configuration.GetSection("Auth");
             services.Configure<AuthOption>(authOptions);
-            //services.RegisterServices();
+            services.RegisterServices();
             services.AddCors(options => options.AddDefaultPolicy(builder => 
                                             builder.AllowAnyOrigin()
                                             .AllowAnyMethod()
@@ -52,7 +52,7 @@ namespace WebApi.SocialNetWorkAdministration
                     ValidateIssuerSigningKey = true
                 };
             });
-            //services.ConfigureSwagger();
+            services.ConfigureSwagger();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -67,8 +67,8 @@ namespace WebApi.SocialNetWorkAdministration
 
             app.UseRouting();
             app.UseCors();
-            //app.UseOpenApi();
-            //app.UseSwaggerUi3();
+            app.UseOpenApi();
+            app.UseSwaggerUi3();
             app.UseAuthentication();
             app.UseAuthorization();
 

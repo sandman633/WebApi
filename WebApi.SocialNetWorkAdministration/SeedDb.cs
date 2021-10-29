@@ -68,9 +68,9 @@ namespace WebApi.SocialNetWorkAdministration
         //        Header = "Акции Google рухнули после объявления о перезапуске RuTube"
         //    }
         //};
-        //public List<Сomment> comments = new List<Сomment>()
+        //public List<Comments> comments = new List<Comments>()
         //{
-        //    new Сomment
+        //    new Comments
         //    {
         //        Author = 1,
         //        NewsId = 1,
@@ -78,7 +78,7 @@ namespace WebApi.SocialNetWorkAdministration
         //        Text = "NOVOST-1 AUTHORID-1 ROOT-0 ID-1",
         //        InvestmentLevel = 0
         //    },
-        //    new Сomment
+        //    new Comments
         //    {
         //        Author = 2,
         //        NewsId = 1,
@@ -86,7 +86,7 @@ namespace WebApi.SocialNetWorkAdministration
         //        Text = "NOVOST-1 AUTHORID-2 ROOT-1 ID-2",
         //        InvestmentLevel = 0
         //    },
-        //    new Сomment
+        //    new Comments
         //    {
         //        Author = 2,
         //        NewsId = 2,
