@@ -3,10 +3,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace DAL.Migrations
 {
-    public partial class initalMigration : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+
             migrationBuilder.CreateTable(
                 name: "Roles",
                 columns: table => new
@@ -27,7 +28,9 @@ namespace DAL.Migrations
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Name = table.Column<string>(type: "text", nullable: true),
+                    Surname = table.Column<string>(type: "text", nullable: true),
                     Email = table.Column<string>(type: "text", nullable: true),
+                    Age = table.Column<int>(type: "integer", nullable: false),
                     Password = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
@@ -115,6 +118,26 @@ namespace DAL.Migrations
                         principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Users",
+                columns: new[] { "Id", "Age", "Email", "Name", "Password", "Surname" },
+                values: new object[,]
+                {
+                    { 1, 23, "emTom@gmail.com", "Tom", "123123", "Surname" },
+                    { 2, 26, "emAlice@gmail.com", "Alice", "123123", "Surname" },
+                    { 3, 28, "emSam@gmail.com", "Sam", "123123", "Surname" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "News",
+                columns: new[] { "Id", "Body", "Header", "UserId" },
+                values: new object[,]
+                {
+                    { 1, "BodyNews1", "Header1", 1 },
+                    { 2, "BodyNews2", "Header2", 2 },
+                    { 3, "BodyNews3", "Header3", 2 }
                 });
 
             migrationBuilder.CreateIndex(

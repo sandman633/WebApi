@@ -21,8 +21,8 @@ namespace AspNetWebApiHomework.Swagger
             services.AddSwaggerDocument(c =>
             {
                 c.Title = "Administration";
-                c.DocumentName = SwagDocParts.Administration;
-                c.ApiGroupNames = new[] { SwagDocParts.Administration};
+                c.DocumentName = SwagDocParts.News;
+                c.ApiGroupNames = new[] { SwagDocParts.News};
                 c.GenerateXmlObjects = true;
             });
         }

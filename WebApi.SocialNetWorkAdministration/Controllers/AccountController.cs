@@ -18,7 +18,7 @@ using static DAL.Domain.User;
 namespace WebApi.SocialNetWorkAdministration.Controllers
 {
     [ApiController]
-    [ApiExplorerSettings(GroupName = SwagDocParts.Administration)]
+    [ApiExplorerSettings(GroupName = SwagDocParts.Account)]
     public class AccountController : ControllerBase
     {
         IMapper _mapper;

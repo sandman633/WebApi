@@ -13,6 +13,10 @@ namespace WebApi.SocialNetWorkAdministration.Swagger
         /// <summary>
         /// Константа для сваггер-документа 
         /// </summary>
-        public const string Administration = nameof(Administration);
+        public const string News = nameof(News);
+        /// <summary>
+        /// Константа для сваггер-документа 
+        /// </summary>
+        public const string Account = nameof(Account);
     }
 }

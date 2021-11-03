@@ -14,9 +14,9 @@ namespace WebApi.SocialNetWorkAdministration.Infrastructure.Extensions
     {
         public static void RegisterServices(this IServiceCollection services)
         {
-            services.AddTransient<IUserService, UserService>();
-            services.AddTransient<INewsService, NewsService>();
-            services.AddTransient<IUserRoleService, UserRoleService>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<INewsService, NewsService>();
+            services.AddScoped<IUserRoleService, UserRoleService>();
         }
     }
 }
