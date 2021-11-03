@@ -61,7 +61,7 @@ namespace Repositories
         /// <returns>DTO collection.</returns>
         public virtual async Task<IEnumerable<TDto>> GetAsync()
         {
-            var entity = await DbSet.AsNoTracking().ToListAsync();
+            var entity = await DefaultIncludeProperties(DbSet).AsNoTracking().ToListAsync();
             var dtos = _mapper.Map<IEnumerable<TDto>>(entity);
             return dtos;
         }

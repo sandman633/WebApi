@@ -14,7 +14,8 @@ namespace DAL.Domain
 
         public WebApiContext(DbContextOptions options) : base(options)
         {
-
+            Database.EnsureDeleted();
+            Database.EnsureCreated();
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

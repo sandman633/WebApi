@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Repositories.Mappings;
 using WebApi.SocialNetWorkAdministration.Infrastructure.AuthOptions;
 using WebApi.SocialNetWorkAdministration.Infrastructure.Extensions;
 using WebApi.SocialNetWorkAdministration.Infrastructure.Mapping;
@@ -24,6 +25,8 @@ namespace WebApi.SocialNetWorkAdministration
         {
             var authOptions = Configuration.GetSection("Auth");
             services.Configure<AuthOption>(authOptions);
+            services.AddAutoMapper(typeof(Startup));
+            services.RegisterRepository();
             services.RegisterServices();
             services.AddCors(options => options.AddDefaultPolicy(builder => 
                                             builder.AllowAnyOrigin()
@@ -31,7 +34,7 @@ namespace WebApi.SocialNetWorkAdministration
                                             .AllowAnyHeader()));
 
             services.ConfigurationDb(Configuration);
-            services.AddAutoMapper(config => config.AddProfile<UserProfile>());
+            services.AddAutoMapper(config => config.AddProfile<NewsProfile>());
             services.AddControllers().AddNewtonsoftJson(options =>
                                         options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             var authoptions = Configuration.GetSection("Auth").Get<AuthOption>();
