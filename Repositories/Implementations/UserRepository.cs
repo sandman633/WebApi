@@ -18,8 +18,6 @@ namespace Repositories.Implementations
 
         }
 
-
-
         protected override IQueryable<User> DefaultIncludeProperties(DbSet<User> dbSet)
         {
             return base.DefaultIncludeProperties(dbSet).Include(er => er.UserRoles);
