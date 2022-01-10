@@ -42,6 +42,7 @@ namespace Repositories
         {
             var entity = _mapper.Map<TModel>(dto);
             await DbSet.AddAsync(entity);
+            SaveChanges();
             return await GetByIdAsync(entity.Id);
         }
 
@@ -54,6 +55,7 @@ namespace Repositories
         {
             var entities = await DbSet.Where(x => ids.Contains(x.Id)).ToListAsync();
             DbSet.RemoveRange(entities);
+            SaveChanges(); 
         }
         /// <summary>
         /// Asynchronous method for getting entity.
@@ -103,7 +105,13 @@ namespace Repositories
             DbSet.Update(entity);
 
             var newEntity = await GetByIdAsync(entity.Id);
+            SaveChanges();
             return _mapper.Map<TDto>(newEntity);
+        }
+
+        public virtual async void SaveChanges()
+        {
+            _context.SaveChanges();
         }
         /// <summary>
         /// Method for loading related data.

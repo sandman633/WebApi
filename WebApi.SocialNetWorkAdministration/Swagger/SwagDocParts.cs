@@ -17,6 +17,6 @@ namespace WebApi.SocialNetWorkAdministration.Swagger
         /// <summary>
         /// Константа для сваггер-документа 
         /// </summary>
-        public const string Account = nameof(Account);
+        public const string User = nameof(User);
     }
 }
