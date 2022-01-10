@@ -8,7 +8,6 @@ using Microsoft.Extensions.Hosting;
 using Repositories.Mappings;
 using WebApi.SocialNetWorkAdministration.Infrastructure.AuthOptions;
 using WebApi.SocialNetWorkAdministration.Infrastructure.Extensions;
-using WebApi.SocialNetWorkAdministration.Infrastructure.Mapping;
 
 namespace WebApi.SocialNetWorkAdministration
 {
@@ -34,10 +33,25 @@ namespace WebApi.SocialNetWorkAdministration
                                             .AllowAnyHeader()));
 
             services.ConfigurationDb(Configuration);
-            services.AddAutoMapper(config => config.AddProfile<NewsProfile>());
+            services.AddAutoMapper(config =>
+            {
+                config.AddProfile<NewsProfile>();
+                config.AddProfile<UserProfile>();
+            }
+            );
             services.AddControllers().AddNewtonsoftJson(options =>
                                         options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             var authoptions = Configuration.GetSection("Auth").Get<AuthOption>();
+            services.AddAuthorization(options => {
+                options.AddPolicy("ReadNews", policy =>
+                {
+                    policy.RequireAssertion(context => context.User.HasClaim(c => c.Type == "News"));
+                });
+                options.AddPolicy("ReadNews", policy =>
+                {
+                    policy.RequireAssertion(context => context.User.HasClaim(c => c.Type == "News"));
+                });
+            });
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
             {
                 options.RequireHttpsMetadata = false;
@@ -59,7 +73,7 @@ namespace WebApi.SocialNetWorkAdministration
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env,SeedDb seed)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -69,10 +83,10 @@ namespace WebApi.SocialNetWorkAdministration
             app.UseHttpsRedirection();
 
             app.UseRouting();
-            app.UseCors();
-            app.UseOpenApi();
-            app.UseSwaggerUi3();
+
+
             app.UseAuthentication();
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -80,7 +94,11 @@ namespace WebApi.SocialNetWorkAdministration
                 endpoints.MapControllers();
             });
 
-            //seed.Seed();
+            app.UseCors();
+            app.UseOpenApi();
+            app.UseSwaggerUi3();
+
+            
         }
     }
 }

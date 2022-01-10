@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Models.Dto;
 using DAL.Domain;
+using Models.Request.User;
 
 namespace Repositories.Mappings
 {
@@ -15,6 +16,9 @@ namespace Repositories.Mappings
         public UserProfile()
         {
             CreateMap<User, UserDto>().ReverseMap();
+            CreateMap<UserDto, UserResponse>().ReverseMap();
+            CreateMap<NewUserRequest, UserDto>().ReverseMap();
+            CreateMap<UpdateUserRequest, UserDto>().ReverseMap();
         }
     }
 }

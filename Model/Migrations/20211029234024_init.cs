@@ -7,6 +7,11 @@ namespace DAL.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable("Comments");
+            migrationBuilder.DropTable("News");
+            migrationBuilder.DropTable("UsersRoles");
+            migrationBuilder.DropTable("Users");
+            migrationBuilder.DropTable("Roles");
 
             migrationBuilder.CreateTable(
                 name: "Roles",

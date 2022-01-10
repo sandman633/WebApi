@@ -7,6 +7,7 @@ using WebApi.SocialNetWorkAdministration.Swagger;
 namespace WebApi.SocialNetWorkAdministration.Controllers
 {
     [ApiController]
+    [Route("api/[controller]")]
     [ApiExplorerSettings(GroupName = SwagDocParts.News)]
     public class NewsController : ControllerBase
     {
@@ -20,17 +21,11 @@ namespace WebApi.SocialNetWorkAdministration.Controllers
         }
 
         [HttpGet]
-        [Route("[controller]/News")]
         public async Task<IActionResult> Get()
         {
 
-            return Ok(_newsService.GetAsync());
+            return Ok(_newsService.GetAsync().Result);
 
         }
-
-
-
-
-
     }
 }

@@ -10,8 +10,10 @@ namespace WebApi.SocialNetWorkAdministration.Infrastructure.Extensions
     {
         public static void ConfigurationDb(this IServiceCollection service,IConfiguration configuration)
         {
-            service.AddDbContext<WebApiContext>(options => options.UseNpgsql(configuration.GetConnectionString(nameof(WebApiContext)), builder => builder.MigrationsAssembly(typeof(WebApiContext).Assembly.FullName)));
-            service.AddTransient<SeedDb>();
+            service.AddDbContext<WebApiContext>(options => 
+            options.UseNpgsql(configuration.GetConnectionString(nameof(WebApiContext)), 
+            builder => builder.MigrationsAssembly(typeof(WebApiContext).Assembly.FullName)));
+            
         }
     }
 }
