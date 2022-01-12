@@ -11,31 +11,19 @@ namespace Repositories.Implementations
 {
     public class UserRoleRepository : BaseRepository<UserRoleDto, UserRole>, IUserRoleRepository
     {
-        public UserRoleRepository(WebApiContext context,IUserRepository userRepository, IMapper mapper) : base(context, mapper)
+        public UserRoleRepository(WebApiContext context, IMapper mapper) : base(context, mapper)
         {
-            _userRepository = userRepository;
+            
         }
 
-        private IUserRepository _userRepository;
-
-        public async Task<UserDto> BanUser(UserRoleDto user)
+        public Task<UserDto> BanUser(UserRoleDto id)
         {
-            var banneduser = await _userRepository.GetByIdAsync(user.UserId);
-            if(banneduser == null)
-                await CreateAsync(user);
-            else
-                throw new NullReferenceException("Can't Ban user because user is not exist");
-            return banneduser;
+            throw new NotImplementedException();
         }
 
-        public async Task<UserDto> UnBanUser(int id)
+        public Task<UserDto> UnBanUser(UserRoleDto id)
         {
-            var banneduser = await _userRepository.GetByIdAsync(id);
-            if (banneduser == null)
-                await DeleteAsync(id);
-            else
-                throw new NullReferenceException("Can't Unban user because user is not exist");
-            return banneduser;
+            throw new NotImplementedException();
         }
     }
 }

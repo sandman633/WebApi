@@ -10,8 +10,7 @@ namespace Repositories.Interfaces
 {
     public interface IUserRoleRepository : ICrudRepository<UserRoleDto,UserRole>
     {
-
-        Task<UserDto> BanUser(UserRoleDto user);
-        Task<UserDto> UnBanUser(int id);
+        public Task<UserDto> BanUser(UserRoleDto id);
+        public Task<UserDto> UnBanUser(UserRoleDto id);
     }
 }

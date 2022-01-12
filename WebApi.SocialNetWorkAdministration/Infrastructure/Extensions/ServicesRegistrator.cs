@@ -15,6 +15,7 @@ namespace WebApi.SocialNetWorkAdministration.Infrastructure.Extensions
         public static void RegisterServices(this IServiceCollection services)
         {
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<ICommentsService, CommentsService>();
             services.AddScoped<INewsService, NewsService>();
             services.AddScoped<IUserRoleService, UserRoleService>();
         }

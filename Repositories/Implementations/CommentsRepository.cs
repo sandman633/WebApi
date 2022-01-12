@@ -16,22 +16,7 @@ namespace Repositories.Implementations
         }
 
 
-        public async Task<CommentsDto> LeaveComment(CommentsDto comment)
-        {
-            if(comment.LinkedCommentId != null)
-            {
-                var linkedComment = await GetByIdAsync((int)comment.LinkedCommentId);
-                if (linkedComment.Root == 5)
-                {
-                    //TODO: добавить эксепшп для коммента 
-                    return null;
-                }
-                comment.Root = linkedComment.Root++;
-                return await CreateAsync(comment);
-            }
-            comment.Root = 1;
-            return await CreateAsync(comment);
-        }
+
 
 
     }

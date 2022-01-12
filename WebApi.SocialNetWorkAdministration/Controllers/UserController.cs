@@ -19,7 +19,7 @@ namespace WebApi.SocialNetWorkAdministration.Controllers
     {
         private readonly IUserService _userService;
         private readonly IMapper _mapper;
-        private readonly ILogger _logger;
+        private readonly ILogger<UserController> _logger;
 
         public UserController(IUserService userService, IMapper mapper, ILogger<UserController> logger)
         {
