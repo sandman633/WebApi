@@ -35,7 +35,7 @@ namespace BL.Services.Implementations
             var rep = _crudRepository as IUserRoleRepository;
             var banneduser = await _userRepository.GetByIdAsync(user.UserId);
             if(banneduser == null)
-                await rep.UnBanUser(user.UserId);
+                await rep.UnBanUser(user);
             else
                 throw new NullReferenceException("Can't Unban user because user is not exist");
             return banneduser;

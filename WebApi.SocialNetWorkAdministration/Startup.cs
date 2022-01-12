@@ -37,6 +37,7 @@ namespace WebApi.SocialNetWorkAdministration
             {
                 config.AddProfile<NewsProfile>();
                 config.AddProfile<UserProfile>();
+                config.AddProfile<CommentProfile>();
             }
             );
             services.AddControllers().AddNewtonsoftJson(options =>

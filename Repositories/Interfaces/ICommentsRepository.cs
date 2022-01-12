@@ -10,6 +10,6 @@ namespace Repositories.Interfaces
 {
     public interface ICommentsRepository : ICrudRepository<CommentsDto, Comments>
     {
-        Task<CommentsDto> LeaveComment(CommentsDto comment);
+        
     }
 }

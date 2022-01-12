@@ -44,6 +44,13 @@ namespace AspNetWebApiHomework.Swagger
                 c.ApiGroupNames = new[] { SwagDocParts.User};
                 c.GenerateXmlObjects = true;
             });
+            services.AddSwaggerDocument(c =>
+            {
+                c.Title = "Comments";
+                c.DocumentName = SwagDocParts.Comments;
+                c.ApiGroupNames = new[] { SwagDocParts.Comments };
+                c.GenerateXmlObjects = true;
+            });
         }
     }
 }

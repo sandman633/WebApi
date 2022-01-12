@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Models.Response.News
 {
-    internal class NewsResponse
+    public class NewsResponse
     {
     }
 }
