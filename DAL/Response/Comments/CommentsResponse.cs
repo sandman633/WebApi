@@ -15,5 +15,7 @@ namespace Models.Response.Comments
         public int NewsId { get; set; }
 
         public int? LinkedCommentId { get; set; }
+
+        public CommentsResponse LinkedComment { get; set; }
     }
 }
