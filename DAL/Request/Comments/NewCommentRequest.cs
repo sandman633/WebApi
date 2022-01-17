@@ -7,11 +7,7 @@ namespace Models.Request.Comments
     /// </summary>
     public class NewCommentRequest
     {
-        /// <summary>
-        /// Author.
-        /// </summary>
-        [Required]
-        public string AuthorName { get; set; }
+
         /// <summary>
         /// Text.
         /// </summary>

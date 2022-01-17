@@ -101,15 +101,17 @@ namespace Repositories
         /// <returns>DTO.</returns>
         public virtual async Task<TDto> UpdateAsync(TDto dto)
         {
-            var entity = _mapper.Map<TModel>(dto);
-            DbSet.Update(entity);
 
-            var newEntity = await GetByIdAsync(entity.Id);
+            var entity = _mapper.Map<TModel>(dto);
+            //if (!DbSet.Contains(entity))
+            //throw new ex
+            DbSet.Update(entity);
             SaveChanges();
+            var newEntity = await GetByIdAsync(entity.Id);
             return _mapper.Map<TDto>(newEntity);
         }
 
-        public virtual async void SaveChanges()
+        public virtual  void SaveChanges()
         {
             _context.SaveChanges();
         }

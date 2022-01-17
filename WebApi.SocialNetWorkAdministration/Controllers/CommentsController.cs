@@ -70,7 +70,7 @@ namespace WebApi.SocialNetWorkAdministration.Controllers
         {
             _logger.LogInformation("Comments/Create was requested.");
             var commentDto = _mapper.Map<CommentsDto>(comment);
-            var response = await _commentsService.CreateAsync(commentDto);
+            var response = await _commentsService.LeaveComment(commentDto);
             return Ok(_mapper.Map<CommentsResponse>(response));
         }
     }

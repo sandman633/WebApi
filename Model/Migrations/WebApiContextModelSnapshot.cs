@@ -154,7 +154,7 @@ namespace DAL.Migrations
                     b.HasOne("DAL.Domain.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("LinkedComment");
