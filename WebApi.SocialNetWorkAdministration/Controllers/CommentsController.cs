@@ -16,7 +16,7 @@ namespace WebApi.SocialNetWorkAdministration.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [ApiExplorerSettings(GroupName = SwagDocParts.News)]
+    [ApiExplorerSettings(GroupName = SwagDocParts.Comments)]
     public class CommentsController : ControllerBase
     {
         private readonly ICommentsService _commentsService;

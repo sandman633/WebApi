@@ -22,5 +22,9 @@ namespace WebApi.SocialNetWorkAdministration.Swagger
         /// Константа для сваггер-документа 
         /// </summary>
         public const string Comments = nameof(Comments);
+        /// <summary>
+        /// Константа для сваггер-документа 
+        /// </summary>
+        public const string Authentificate = nameof(Authentificate);
     }
 }

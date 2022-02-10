@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WebApi.SocialNetWorkAdministration.Infrastructure.AuthOptions
 {
-    public class AuthOption
+    public class JwtTokenConfig
     {
         public string Issuer { get; set; }
         public string Audience { get; set; }

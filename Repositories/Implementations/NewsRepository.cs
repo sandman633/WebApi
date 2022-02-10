@@ -18,7 +18,7 @@ namespace Repositories.Implementations
         }
 
 
-        protected override IQueryable<News> DefaultIncludeProperties(DbSet<News> dbSet)
+        public override IQueryable<News> DefaultIncludeProperties(DbSet<News> dbSet)
         {
             return base.DefaultIncludeProperties(dbSet).Include(er => er.User).Include(er => er.Сomments);
         }

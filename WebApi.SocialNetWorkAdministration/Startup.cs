@@ -23,7 +23,7 @@ namespace WebApi.SocialNetWorkAdministration
         public void ConfigureServices(IServiceCollection services)
         {
             var authOptions = Configuration.GetSection("Auth");
-            services.Configure<AuthOption>(authOptions);
+            services.Configure<JwtTokenConfig>(authOptions);
             services.AddAutoMapper(typeof(Startup));
             services.RegisterRepository();
             services.RegisterServices();
@@ -32,7 +32,7 @@ namespace WebApi.SocialNetWorkAdministration
                                             .AllowAnyMethod()
                                             .AllowAnyHeader()));
 
-            services.ConfigurationDb(Configuration);
+            services.DbConfigure(Configuration);
             services.AddAutoMapper(config =>
             {
                 config.AddProfile<NewsProfile>();
@@ -42,7 +42,7 @@ namespace WebApi.SocialNetWorkAdministration
             );
             services.AddControllers().AddNewtonsoftJson(options =>
                                         options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
-            var authoptions = Configuration.GetSection("Auth").Get<AuthOption>();
+            var authoptions = Configuration.GetSection("Auth").Get<JwtTokenConfig>();
             services.AddAuthorization(options => {
                 options.AddPolicy("ReadNews", policy =>
                 {
@@ -67,7 +67,7 @@ namespace WebApi.SocialNetWorkAdministration
                     ValidateLifetime = true,
 
                     IssuerSigningKey = authoptions.GetSymmetricSecurityKey(),
-                    ValidateIssuerSigningKey = true
+                    ValidateIssuerSigningKey = true,
                 };
             });
             services.ConfigureSwagger();

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace WebApi.SocialNetWorkAdministration.Infrastructure.Extensions
 {
-    public static class ServicesRegistrator
+    public static class ServicesConfiguration
     {
         public static void RegisterServices(this IServiceCollection services)
         {

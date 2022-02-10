@@ -16,14 +16,9 @@ namespace Repositories.Implementations
             
         }
 
-        public Task<UserDto> BanUser(UserRoleDto id)
+        public override IQueryable<UserRole> DefaultIncludeProperties(DbSet<UserRole> dbSet)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<UserDto> UnBanUser(UserRoleDto id)
-        {
-            throw new NotImplementedException();
+            return base.DefaultIncludeProperties(dbSet);
         }
     }
 }
