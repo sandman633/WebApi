@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BL.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -28,6 +29,8 @@ namespace WebApi.SocialNetWorkAdministration.Controllers
             _mapper = mapper;
             _logger = logger;
         }
+        
+        [Authorize(Policy = "ReadNews")]
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<NewsResponse>))]
         public async Task<IActionResult> GetAsync()
@@ -37,7 +40,7 @@ namespace WebApi.SocialNetWorkAdministration.Controllers
             return Ok(_mapper.Map<IEnumerable<NewsResponse>>(response));
         }
 
-
+        [Authorize]
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(NewsResponse))]
         public async Task<IActionResult> GetByIdAsync(int id, CancellationToken cancellationToken)

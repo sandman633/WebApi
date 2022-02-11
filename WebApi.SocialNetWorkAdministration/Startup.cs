@@ -1,5 +1,6 @@
 using AspNetWebApiHomework.Swagger;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -22,8 +23,13 @@ namespace WebApi.SocialNetWorkAdministration
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var authOptions = Configuration.GetSection("Auth");
-            services.Configure<JwtTokenConfig>(authOptions);
+
+            var authoptions = Configuration.GetSection("Auth").Get<JwtTokenConfig>();
+
+            services.AddSingleton(authoptions);
+
+            services.AddScoped<JwtAuthManager>();
+
             services.AddAutoMapper(typeof(Startup));
             services.RegisterRepository();
             services.RegisterServices();
@@ -42,34 +48,13 @@ namespace WebApi.SocialNetWorkAdministration
             );
             services.AddControllers().AddNewtonsoftJson(options =>
                                         options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
-            var authoptions = Configuration.GetSection("Auth").Get<JwtTokenConfig>();
-            services.AddAuthorization(options => {
-                options.AddPolicy("ReadNews", policy =>
-                {
-                    policy.RequireAssertion(context => context.User.HasClaim(c => c.Type == "News"));
-                });
-                options.AddPolicy("ReadNews", policy =>
-                {
-                    policy.RequireAssertion(context => context.User.HasClaim(c => c.Type == "News"));
-                });
-            });
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
-            {
-                options.RequireHttpsMetadata = false;
-                options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
-                {
-                    ValidateIssuer = true,
-                    ValidIssuer = authoptions.Issuer,
 
-                    ValidateAudience = true,
-                    ValidAudience = authoptions.Audience,
+            services.AddSingleton<IAuthorizationHandler, PermissionRequirementHandler>();
+    
+            services.AddJwtAuthentification(authoptions);
+            services.AddPermissions();
 
-                    ValidateLifetime = true,
 
-                    IssuerSigningKey = authoptions.GetSymmetricSecurityKey(),
-                    ValidateIssuerSigningKey = true,
-                };
-            });
             services.ConfigureSwagger();
         }
 

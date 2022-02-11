@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace Bl.Services.Interfaces.CRUD
@@ -15,5 +17,6 @@ namespace Bl.Services.Interfaces.CRUD
         /// <param name="dto"></param>
         /// <returns></returns>
         Task<IEnumerable<TDto>> GetAsync();
+
     }
 }

@@ -13,6 +13,7 @@ namespace WebApi.SocialNetWorkAdministration.Infrastructure.Extensions
     {
         public static void RegisterRepository(this IServiceCollection services)
         {
+            services.AddScoped<IUserPolicyRepository, UserPolicyRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<ICommentsRepository, CommentsRepository>();
             services.AddScoped<INewsRepository, NewsRepository>();

@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace BL.Services.Implementations
 {
@@ -17,9 +18,10 @@ namespace BL.Services.Implementations
 
         }
 
-        public Dictionary<string, short> GetPolicy(int userId)
+        public async Task<Dictionary<string, short>> GetPolicy(int userId)
         {
-            return GetAsync().Result.Where(u => u.UserId == userId).Select(u => KeyValuePair.Create<string,short>(u.PolicyType,u.PolicyValue)).ToDictionary(kpv=>kpv.Key,kpv=>kpv.Value);
+            var userPolicy  = await _crudRepository.GetByCriteriaAsync(u => u.UserId == userId);
+            return userPolicy.Select(u => KeyValuePair.Create<string,short>(u.PolicyType,u.PolicyValue)).ToDictionary(kpv=>kpv.Key,kpv=>kpv.Value);
         }
     }
 }

@@ -24,12 +24,12 @@ namespace WebApi.SocialNetWorkAdministration.Controllers
         private readonly JwtAuthManager _jwtAuthManager;
         private readonly IUserRoleService _userRoleService;
         private readonly IUserPolicyService _userPolicyService;
-        private readonly ILogger _logger;
+        private readonly ILogger<AuthController> _logger;
         private readonly IMapper _mapper;
         private readonly IAuthService _authService;
 
 
-        public AuthController(IAuthService authService, JwtAuthManager jwtAuthManager,IUserPolicyService userPolicyService, IUserRoleService userRoleService, ILogger logger, IMapper mapper) 
+        public AuthController(IAuthService authService, JwtAuthManager jwtAuthManager,IUserPolicyService userPolicyService, IUserRoleService userRoleService, ILogger<AuthController> logger, IMapper mapper) 
         {
             _userRoleService = userRoleService;
             _userPolicyService = userPolicyService;
@@ -72,7 +72,7 @@ namespace WebApi.SocialNetWorkAdministration.Controllers
         /// <param name="user">Authenticated user.</param>
         private async Task<IActionResult> SendToken(AuthenticatedUserDto user)
         {
-            var policies = _userPolicyService.GetPolicy(user.Id);
+            var policies = await _userPolicyService.GetPolicy(user.Id);
             List<Claim> claims = new List<Claim>();
             foreach (var policy in policies)
             {
