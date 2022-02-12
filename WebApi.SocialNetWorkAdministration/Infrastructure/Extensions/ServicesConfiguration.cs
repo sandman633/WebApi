@@ -10,10 +10,12 @@ using System.Threading.Tasks;
 
 namespace WebApi.SocialNetWorkAdministration.Infrastructure.Extensions
 {
-    public static class ServicesRegistrator
+    public static class ServicesConfiguration
     {
         public static void RegisterServices(this IServiceCollection services)
         {
+            services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<IUserPolicyService, UserPolicyService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<ICommentsService, CommentsService>();
             services.AddScoped<INewsService, NewsService>();

@@ -120,7 +120,7 @@ namespace Repositories
         /// </summary>
         /// <param name="dbSet">DbSet.</param>
         /// <returns>DbSet.</returns>
-        protected virtual IQueryable<TModel> DefaultIncludeProperties(DbSet<TModel> dbSet) => dbSet;
+        public virtual IQueryable<TModel> DefaultIncludeProperties(DbSet<TModel> dbSet) => dbSet;
 
 
     }

@@ -3,15 +3,17 @@ using System;
 using DAL.Domain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace DAL.Migrations
 {
     [DbContext(typeof(WebApiContext))]
-    partial class WebApiContextModelSnapshot : ModelSnapshot
+    [Migration("20220124230712_add policy")]
+    partial class addpolicy
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -117,29 +119,6 @@ namespace DAL.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("DAL.Domain.UserPolicy", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-                    b.Property<string>("PolicyType")
-                        .HasColumnType("text");
-
-                    b.Property<short>("PolicyValue")
-                        .HasColumnType("smallint");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("UsersPolicies");
-                });
-
             modelBuilder.Entity("DAL.Domain.UserRole", b =>
                 {
                     b.Property<int>("Id")
@@ -188,17 +167,6 @@ namespace DAL.Migrations
                 });
 
             modelBuilder.Entity("DAL.Domain.News", b =>
-                {
-                    b.HasOne("DAL.Domain.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("DAL.Domain.UserPolicy", b =>
                 {
                     b.HasOne("DAL.Domain.User", "User")
                         .WithMany()

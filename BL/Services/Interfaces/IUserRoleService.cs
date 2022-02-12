@@ -9,7 +9,7 @@ namespace BL.Services.Interfaces
 {
     public interface IUserRoleService : ICrudService<UserRoleDto>
     {
-        public Task<UserDto> BanUser(UserRoleDto id);
-        public Task<UserDto> UnBanUser(UserRoleDto id);
+        //public Task<UserDto> BanUser(UserRoleDto id);
+        //public Task<UserDto> UnBanUser(UserRoleDto id);
     }
 }

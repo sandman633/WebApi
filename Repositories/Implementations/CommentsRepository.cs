@@ -17,7 +17,7 @@ namespace Repositories.Implementations
         {
         }
 
-        protected override IQueryable<Comments> DefaultIncludeProperties(DbSet<Comments> dbSet)
+        public override IQueryable<Comments> DefaultIncludeProperties(DbSet<Comments> dbSet)
         {
             return base.DefaultIncludeProperties(dbSet).Include(er => er.LinkedComment).Include(er => er.User).Include(er => er.News).Include(er => er.LinkedComment.User);
         }

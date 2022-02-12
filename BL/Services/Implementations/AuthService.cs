@@ -27,14 +27,14 @@ namespace BL.Services.Implementations
             if (string.IsNullOrEmpty(password))
                 throw new ArgumentException("Value cannot be empty or whitespace only string.", nameof(password));
 
-            var employee = await _userService.GetByEmailAsync(email);
-            if (employee == null)
+            var user = await _userService.GetByEmailAsync(email);
+            if (user == null)
                 throw new ArgumentException($"Employee with email: {email} is not exists!");
 
-            if (employee.Password != password)
+            if (user.Password != password)
                 return null;
 
-            return _mapper.Map<AuthenticatedUserDto>(employee);
+            return _mapper.Map<AuthenticatedUserDto>(user);
         }
 
         public async Task<AuthenticatedUserDto> RegisterAsync(UserDto employee)
