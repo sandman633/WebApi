@@ -19,7 +19,6 @@ namespace WebApi.SocialNetWorkAdministration.Infrastructure.Extensions
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<ICommentsService, CommentsService>();
             services.AddScoped<INewsService, NewsService>();
-            services.AddScoped<IUserRoleService, UserRoleService>();
         }
     }
 }

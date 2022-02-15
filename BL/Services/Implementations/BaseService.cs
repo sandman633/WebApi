@@ -1,9 +1,7 @@
-﻿using DAL.Domain;
-using Models.Dto;
+﻿using Model.Domain;
+using DAL.Dto;
 using Bl.Services.Interfaces.CRUD;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using Repositories.Interfaces.CRUD;
 using System.Threading.Tasks;
 

@@ -1,8 +1,7 @@
-﻿using System.Reflection;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using DAL.Domain;
+using Model;
 
 namespace WebApi.SocialNetWorkAdministration.Infrastructure.Extensions
 {

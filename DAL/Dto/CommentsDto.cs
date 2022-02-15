@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Models.Dto
+namespace DAL.Dto
 {
     /// <summary>
     /// CommentsDto.

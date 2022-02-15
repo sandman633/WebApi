@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Models.Request.Authentificate
+namespace DAL.Request.Authentificate
 {
     /// <summary>
     /// Authentication request.

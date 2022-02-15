@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Models.Dto
+namespace DAL.Dto
 {
     public class RoleDto : BaseDto
     {

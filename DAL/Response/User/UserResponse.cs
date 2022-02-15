@@ -1,4 +1,4 @@
-﻿namespace Models.Request.User
+﻿namespace DAL.Request.User
 {
     /// <summary>
     /// User response.

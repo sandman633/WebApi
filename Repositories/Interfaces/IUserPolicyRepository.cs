@@ -1,5 +1,5 @@
-﻿using DAL.Domain;
-using Models.Dto;
+﻿using Model.Domain;
+using DAL.Dto;
 using Repositories.Interfaces.CRUD;
 using System;
 using System.Collections.Generic;

@@ -27,7 +27,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BL\BL.csproj" />
-    <ProjectReference Include="..\Model\DAL.csproj" />
+    <ProjectReference Include="..\Model\Model.csproj" />
   </ItemGroup>
 
 

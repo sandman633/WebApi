@@ -1,6 +1,6 @@
 ﻿using BL.Services.Interfaces;
-using DAL.Domain;
-using Models.Dto;
+using Model.Domain;
+using DAL.Dto;
 using Repositories.Interfaces;
 
 

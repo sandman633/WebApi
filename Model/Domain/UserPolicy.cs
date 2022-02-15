@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DAL.Domain
+namespace Model.Domain
 {
     public class UserPolicy : BaseEntity
     {
