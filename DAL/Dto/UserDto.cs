@@ -1,4 +1,4 @@
-﻿namespace Models.Dto
+﻿namespace DAL.Dto
 {
     /// <summary>
     /// User.

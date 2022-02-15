@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace DAL.Migrations
+namespace Model.Migrations
 {
     public partial class addpolicy : Migration
     {

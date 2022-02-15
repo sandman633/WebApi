@@ -17,7 +17,6 @@ namespace WebApi.SocialNetWorkAdministration.Infrastructure.Extensions
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<ICommentsRepository, CommentsRepository>();
             services.AddScoped<INewsRepository, NewsRepository>();
-            services.AddScoped<IUserRoleRepository, UserRoleRepository>();
         }
     }
 }

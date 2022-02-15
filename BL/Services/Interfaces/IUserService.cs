@@ -1,5 +1,5 @@
 ﻿using Bl.Services.Interfaces.CRUD;
-using Models.Dto;
+using DAL.Dto;
 using System.Threading.Tasks;
 
 namespace BL.Services.Interfaces

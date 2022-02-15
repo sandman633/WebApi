@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using Models.Dto;
-using DAL.Domain;
-using Models.Request.User;
+using DAL.Dto;
+using DAL.Request.User;
+using Model.Domain;
 
 namespace Repositories.Mappings
 {

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Models.Request.News
+namespace DAL.Request.News
 {
     /// <summary>
     /// Update request for News.

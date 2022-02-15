@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Models.Request.User
+namespace DAL.Request.User
 {
     /// <summary>
     /// Request new user model.

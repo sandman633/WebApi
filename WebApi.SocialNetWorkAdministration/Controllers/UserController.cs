@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using BL.Services.Interfaces;
+using DAL.Dto;
+using DAL.Request.User;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Models.Dto;
-using Models.Request.User;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;

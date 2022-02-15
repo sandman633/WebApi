@@ -1,8 +1,5 @@
 ﻿using Bl.Services.Interfaces.CRUD;
-using Models.Dto;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using DAL.Dto;
 
 namespace BL.Services.Interfaces
 {

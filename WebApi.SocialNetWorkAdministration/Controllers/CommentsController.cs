@@ -1,12 +1,11 @@
 ﻿using AutoMapper;
 using BL.Services.Interfaces;
+using DAL.Dto;
+using DAL.Request.Comments;
+using DAL.Response.Comments;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Models.Dto;
-using Models.Request.Comments;
-using Models.Request.User;
-using Models.Response.Comments;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;

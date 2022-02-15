@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Models.Response.Comments
+﻿
+namespace DAL.Response.Comments
 {
     public class CommentsResponse 
     {

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace DAL.Domain
+namespace Model.Domain
 {
     /// <summary>
     /// BaseEntity.

@@ -1,7 +1,4 @@
-﻿using Models.Dto;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using DAL.Dto;
 using System.Threading.Tasks;
 
 namespace BL.Services.Interfaces

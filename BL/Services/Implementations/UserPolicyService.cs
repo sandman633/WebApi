@@ -1,12 +1,9 @@
 ﻿using BL.Services.Interfaces;
-using DAL.Domain;
-using Models.Dto;
+using Model.Domain;
+using DAL.Dto;
 using Repositories.Interfaces;
-using Repositories.Interfaces.CRUD;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BL.Services.Implementations

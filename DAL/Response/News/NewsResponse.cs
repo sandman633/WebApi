@@ -1,9 +1,8 @@
-﻿using Models.Response.Comments;
-using System;
+﻿using DAL.Response.Comments;
 using System.Collections.Generic;
-using System.Text;
 
-namespace Models.Response.News
+
+namespace DAL.Response.News
 {
     public class NewsResponse
     {

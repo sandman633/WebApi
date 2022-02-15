@@ -1,4 +1,4 @@
-﻿namespace Models.Dto
+﻿namespace DAL.Dto
 {
     /// <summary>
     /// Link relationship between <see cref="UserDto"/> and <see cref="RoleDto"/>.

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DAL.Domain
+namespace Model.Domain
 {
     public class User : BaseEntity
     {
@@ -27,8 +27,24 @@ namespace DAL.Domain
         /// </summary>
         public string Password { get; set; }
         /// <summary>
+        /// User Phone number.
+        /// </summary>
+        public string PhoneNumber { get; set; }
+        /// <summary>
         /// User roles.
         /// </summary>
-        public ICollection<UserRole> UserRoles { get; set; }
+        public ICollection<UserPolicy> UserPolicies { get; set; }
+
+        /// <summary>
+        /// User comments.
+        /// </summary>
+        public ICollection<Comments> Comments { get; set; }
+
+        /// <summary>
+        /// User news.
+        /// </summary>
+        public ICollection<News> News { get; set; }
+
+
     }
 }

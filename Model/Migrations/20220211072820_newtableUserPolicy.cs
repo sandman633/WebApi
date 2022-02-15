@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace DAL.Migrations
+namespace Model.Migrations
 {
     public partial class newtableUserPolicy : Migration
     {

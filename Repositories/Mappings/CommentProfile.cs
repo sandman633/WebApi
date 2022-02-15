@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using Models.Dto;
-using DAL.Domain;
-using Models.Response.Comments;
-using Models.Request.Comments;
+using DAL.Dto;
+using DAL.Request.Comments;
+using DAL.Response.Comments;
+using Model.Domain;
 
 namespace Repositories.Mappings
 {
